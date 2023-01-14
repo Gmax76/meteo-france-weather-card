@@ -205,7 +205,7 @@ class WeatherCard extends LitElement {
     return html`
       ${this.renderStyle()}
       <ha-card @click="${this._handleClick}">
-      <div>
+      <div class="header">
         <span
           class="icon bigger"
           style="background: none, url(${
@@ -219,7 +219,7 @@ class WeatherCard extends LitElement {
         ${
           this._config.name
             ? html`
-                <span class="title"> ${this._config.name} </span>
+                <span class="title">${this._config.name} </span>
               `
             : ""
         }
@@ -599,13 +599,14 @@ class WeatherCard extends LitElement {
           font-weight: 300;
           font-size: 3em;
           color: var(--primary-text-color);
-          position: absolute
-          left: 8.2em
+          flex:2;
         }
+
         .temp {
           font-weight: 300;
-          font-size: 4em;
+          font-size: 2em;
           color: var(--primary-text-color);
+          margin-left:auto;
         }
 
         .variations {
@@ -679,8 +680,6 @@ class WeatherCard extends LitElement {
         .icon.bigger {
           width: 8em;
           height: 8em;
-          position: absolute
-          left: 0em;
         }
 
         .icon {
@@ -709,6 +708,11 @@ class WeatherCard extends LitElement {
 
         sup {
           font-size: 0.6em;
+        }
+
+        .header {
+          display: flex;
+          align-items: center;
         }
       </style>
     `;

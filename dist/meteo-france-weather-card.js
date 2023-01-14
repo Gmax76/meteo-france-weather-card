@@ -223,14 +223,17 @@ class WeatherCard extends LitElement {
               `
             : ""
         }
-        <span class="tempd">
-        <span class="temp"
-          >${
+        <span class="temp">
+          ${
             this.getUnit("temperature") == "°F"
               ? Math.round(stateObj.attributes.temperature)
               : stateObj.attributes.temperature
-          }</span>
-        <span class="tempc"> ${this.getUnit("temperature")}</span>
+          }
+          <sup>
+          ${
+            this.getUnit("temperature")
+          }
+          </sup>
         </span>
         </div>
         <span>
@@ -605,13 +608,6 @@ class WeatherCard extends LitElement {
           color: var(--primary-text-color);
         }
 
-        .tempc {
-          font-weight: 300;
-          font-size: 1.5em;
-          vertical-align: super;
-          color: var(--primary-text-color);
-        }
-
         .variations {
           display: flex;
           flex-flow: row wrap;
@@ -710,8 +706,9 @@ class WeatherCard extends LitElement {
           word-wrap: break-word;
           width: 30%;
         }
-        .tempd {
-          margin-left: 2em;
+
+        sup {
+          font-size: 0.6em;
         }
       </style>
     `;

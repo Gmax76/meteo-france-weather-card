@@ -514,7 +514,7 @@ class WeatherCard extends LitElement {
         ha-card {
           cursor: pointer;
           margin: auto;
-          padding-top: 2.5em;
+          padding-top: .5em;
           padding-bottom: 1.3em;
           padding-left: 1em;
           padding-right: 1em;

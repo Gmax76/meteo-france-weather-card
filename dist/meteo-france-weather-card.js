@@ -205,6 +205,7 @@ class WeatherCard extends LitElement {
     return html`
       ${this.renderStyle()}
       <ha-card @click="${this._handleClick}">
+      <div>
         <span
           class="icon bigger"
           style="background: none, url(${
@@ -222,14 +223,16 @@ class WeatherCard extends LitElement {
               `
             : ""
         }
+        <span class="tempd">
         <span class="temp"
           >${
             this.getUnit("temperature") == "°F"
               ? Math.round(stateObj.attributes.temperature)
               : stateObj.attributes.temperature
-          }</span
-        >
+          }</span>
         <span class="tempc"> ${this.getUnit("temperature")}</span>
+        </span>
+        </div>
         <span>
           <ul class="variations">
             <li>
@@ -590,20 +593,16 @@ class WeatherCard extends LitElement {
         }
 
         .title {
-          position: absolute;
-          left: 3em;
-          top: 0.9em;
           font-weight: 300;
           font-size: 3em;
           color: var(--primary-text-color);
+          position: absolute
+          left: 8.2em
         }
         .temp {
           font-weight: 300;
           font-size: 4em;
           color: var(--primary-text-color);
-          position: absolute;
-          right: 1em;
-          top: 0.7em;
         }
 
         .tempc {
@@ -611,10 +610,6 @@ class WeatherCard extends LitElement {
           font-size: 1.5em;
           vertical-align: super;
           color: var(--primary-text-color);
-          position: absolute;
-          right: 1em;
-          margin-top: -14px;
-          margin-right: 7px;
         }
 
         .variations {
@@ -624,7 +619,6 @@ class WeatherCard extends LitElement {
           font-weight: 300;
           color: var(--primary-text-color);
           list-style: none;
-          margin-top: 4.5em;
           padding: 0;
         }
 
@@ -689,8 +683,7 @@ class WeatherCard extends LitElement {
         .icon.bigger {
           width: 8em;
           height: 8em;
-          position: absolute;
-          margin-top: -3.1em;
+          position: absolute
           left: 0em;
         }
 
@@ -716,6 +709,9 @@ class WeatherCard extends LitElement {
           left: 6em;
           word-wrap: break-word;
           width: 30%;
+        }
+        .tempd {
+          margin-left: 2em;
         }
       </style>
     `;
